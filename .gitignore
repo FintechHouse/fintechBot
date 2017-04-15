@@ -1,0 +1,13 @@
+.vscode/
+bin/
+obj/
+build/
+packages/
+node_modules/
+
+*.user
+paket.exe
+.DS_Store
+npm-debug.log
+*.userprefs
+AssemblyVersionInfo.fs
