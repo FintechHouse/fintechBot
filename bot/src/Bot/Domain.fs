@@ -1,8 +1,8 @@
 namespace fintechHouse.Bot
 
-module Domain =
+module Domain
 
-  type Query = {
-    Sender : string
-    Symbol : string
-  }
+type Query = {
+  Sender : string
+  Symbol : string
+}

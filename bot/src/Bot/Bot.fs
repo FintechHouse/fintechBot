@@ -1,4 +1,10 @@
 namespace fintechHouse.bot
 
-module Main =
-  let x = 1
+
+module Main
+let y = 1
+
+// let check x y = 
+//   match x with 
+//     | Eq y -> y
+//     | _ -> 0
