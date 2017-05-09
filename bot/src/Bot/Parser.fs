@@ -7,9 +7,11 @@ module Parser =
   let parseTweet (str: string) = 
     let x = str.Split([|' '|])
     match x.Length with 
-      | 2 -> Ok ({
-                Sender = x.[0]
-                Symbol = x.[1]
-              })
+      | 2 -> 
+          Ok (
+            {
+              Sender = x.[0]
+              Symbol = x.[1]
+            })
       | _ -> Error "not a correct query"
 
