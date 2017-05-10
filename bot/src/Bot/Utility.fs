@@ -9,6 +9,14 @@ module Utility =
     if expect = myval then Some ()
     else None
 
+  let (|Greater|_|) cmp myval =    // check equality on any type supporting equality
+    if myval > cmp then Some (myval)
+    else None
+
+  let (|LessThan|_|) cmp myval =    // check equality on any type supporting equality
+    if myval < cmp then Some (myval)
+    else None
+
   let (|Val|_|) =   // generally find a value in a map providing the key
     Map.tryFind
 
@@ -18,6 +26,14 @@ module Utility =
     match f str with
       | true, rs -> Some rs
       | false, _ -> None
+
+  
+  let nextYear = DateTime.Now.Year + 1
+
+  let (|TryYear|_|) y = 
+    match y with 
+    | Greater 1970 yy & LessThan nextYear ay -> Some ay
+    | _ -> None
 
   // let (|TryParseExactAP|_|) f format v =
   //   match f (v, format, CultureInfo.InvariantCulture, DateTimeStyles.None) with
