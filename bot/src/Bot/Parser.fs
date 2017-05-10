@@ -10,7 +10,7 @@ module Parser =
     let x = str.Split([|' '|])
     match x with 
       // ask the quotation for all the year
-      | [| snd; sy; TryParseAP Int32.TryParse yy |] ->
+      | [| snd; sy; TryParseAP Int32.TryParse y & TryYear yy |] ->
           Ok (
             {
               Sender = x.[0]
