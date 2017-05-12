@@ -30,10 +30,16 @@ module Utility =
   
   let nextYear = DateTime.Now.Year + 1
 
-  let (|TryYear|_|) y = 
+  let (|IntToYear|_|) y = 
     match y with 
     | Greater 1970 yy & LessThan nextYear ay -> Some ay
     | _ -> None
+
+
+  let(|TryParseIntoYear|_|) f y =
+    match f y with 
+    | true, IntToYear rs -> Some rs
+    | _, _ -> None
 
   // let (|TryParseExactAP|_|) f format v =
   //   match f (v, format, CultureInfo.InvariantCulture, DateTimeStyles.None) with
