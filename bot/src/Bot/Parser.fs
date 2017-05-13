@@ -8,5 +8,6 @@ module Parser =
 
   let parseTweet (str: string) = 
     match str with 
+      | TryParseQueryYear qy -> Ok(qy)
       | TryParseQuery q -> Ok(q)
       | _ -> Error "not a correct query"

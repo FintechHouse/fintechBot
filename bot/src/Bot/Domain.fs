@@ -12,12 +12,6 @@ module Domain =
     ToDate: DateTime
   }
 
-  type QueryWithYear = {
-    Sender : string
-    Symbol : string
-    Year: int
-  }
-
   let (|TryParseQuery|_|) (q: string) =
     let ar = q.Split([|' '|])
     match ar with
@@ -35,12 +29,13 @@ module Domain =
   let (|TryParseQueryYear|_|) (q: string) =
     let ar = q.Split([|' '|])
     match ar with
-      | [| s; sn; fd; td; |] -> 
+      | [| s; sn; TryParseIntoYear Int32.TryParse yy |] -> 
           Some(
             {
               Sender = s
               Symbol = sn
-              Year = 2017
+              FromDate = DateTime(yy, 01, 01)
+              ToDate = DateTime(yy, 12, 31)
             })
       | _ -> None
 
